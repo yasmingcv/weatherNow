@@ -1,3 +1,19 @@
+@keyframes showContainerWhenToOpen {
+    from {
+      opacity: .3;
+    } to {
+      opacity: 1;
+    }}
+
+    @keyframes showTitleWhenToOpen {
+        from {
+          opacity: .3;
+          transform: translate(-10px, 0px);
+        } to {
+          opacity: 1;
+          transform: translate(0px, 0px);
+        }
+      }
 .card-clima {
     height: 200px;
     width: 300px;
@@ -9,10 +25,12 @@
     flex-direction: column;
     gap: 34px;
     padding: 30px;
+    animation: showContainerWhenToOpen 1s;
 }
 .card-clima h3{
     font-size: 4rem;
     font-weight: 700;
+    animation: showTitleWhenToOpen 1s;
 }
 .card-clima p{
     font-size: 1.5rem;
