@@ -31,6 +31,26 @@ header{
 .logo{
     font-family: 'Francois One', sans-serif
 }
+.cidades{
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(300px, 1fr));
+    margin: 100px;
+    gap: 100px;
+}
+.cidades__add{
+    display: grid;
+    width: 100px;
+    height: 100px;
+    background-color: var(--details);
+    border-radius: 50%;
+    place-items: center;
+    place-self: center;
+    border: 1px solid #005A8D;
+}
+.cidades__add p{
+    font-size: 4rem;
+    color: #343C44;
+}
 footer{
     display: flex;
     flex-direction: row;

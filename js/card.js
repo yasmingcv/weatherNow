@@ -43,8 +43,7 @@ class card_clima extends HTMLElement {
         const css = document.createElement('style')
         css.textContent = `
         .card-clima {
-            height: 200px;
-            width: 300px;
+            width: 250px;
             border: 1px solid ${this.cor};
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             border-radius: 20px;
@@ -57,10 +56,14 @@ class card_clima extends HTMLElement {
         .card-clima h3{
             font-size: 4rem;
             font-weight: 700;
+            padding: 0;
+            margin: 0;
         }
         .card-clima p{
             font-size: 1.5rem;
             font-weight: 400;
+            padding:0;
+            margin: 0;
         }   
         `
         return css
