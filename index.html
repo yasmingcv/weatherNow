@@ -14,23 +14,27 @@
     <script src="https://kit.fontawesome.com/5c84213cbd.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/card.css">
-    <script src="./js/card.js"></script>
+    <script src="./js/card.js" defer type="module"></script>
+    <script src="./js/router.js" defer type="module"></script>
     <title>WeatherNow</title>
 </head>
 
 <body>
     <header>
         <p class="logo">WeatherNow</p>
-        <p>Buscar cidade</p>
+        <a href="/cidades" onclick="route()">
+            <p>Buscar cidade</p>
+        </a>
+        
     </header>
-    <main>
+    <main id="root">
         <div class="cidades">
             <card-clima clima="13º" cidade="São Paulo - BR" cor="white" ></card-clima>
             <card-clima clima="28º" cidade="Paraná - BR" cor="yellow" ></card-clima>
             <card-clima clima="33º" cidade="Rio de Janeiro - BR" cor="red" ></card-clima>
-            <div class="cidades__add">
+            <a href="/cidades" onclick="route()" class="cidades__add">
                 <p>+</p>
-            </div>
+            </a>
         </div>
 
     </main>

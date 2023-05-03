@@ -4,6 +4,10 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
+a{
+    text-decoration: none;
+    color: #fff;
+}
 :root{
     --primary-color: #005A8D;
     --cold-weather: #91BCB2;
@@ -68,4 +72,9 @@ footer div{
     gap: 40px;
     font-size: 1.25rem;
     padding: 0px 73px;
+}
+.container-vermelho{
+    background-color: red;
+    width: 100%;
+    height: 100%;
 }
