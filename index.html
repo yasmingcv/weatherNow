@@ -22,21 +22,26 @@
 <body>
     <header>
         <p class="logo">WeatherNow</p>
-        <a href="/cidades" onclick="route()">
-            <p>Buscar cidade</p>
-        </a>
+        <nav>
+            <a href="/cidades" onclick="route()">
+                <p class="buscar">Buscar cidade</p>
+            </a>
+            <a href="/" onclick="route()">
+                <p>Favoritos</p>
+            </a>
+        </nav>
         
     </header>
     <main id="root">
         <div class="cidades">
-            <card-clima clima="13º" cidade="São Paulo - BR" cor="white" ></card-clima>
-            <card-clima clima="28º" cidade="Paraná - BR" cor="yellow" ></card-clima>
-            <card-clima clima="33º" cidade="Rio de Janeiro - BR" cor="red" ></card-clima>
-            <a href="/cidades" onclick="route()" class="cidades__add">
+            <card-clima></card-clima>
+            <card-clima></card-clima>
+            <card-clima></card-clima>
+            <card-clima></card-clima>
+            <!-- <a href="/cidades" onclick="route()" class="cidades__add">
                 <p>+</p>
-            </a>
+            </a> -->
         </div>
-
     </main>
     <footer>
         <div>

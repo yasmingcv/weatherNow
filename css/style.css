@@ -35,6 +35,10 @@ header{
 .logo{
     font-family: 'Francois One', sans-serif
 }
+header nav{
+    display: flex;
+    gap: 20px;
+}
 .cidades{
     display: grid;
     grid-template-columns: repeat(auto-fit , minmax(300px, 1fr));

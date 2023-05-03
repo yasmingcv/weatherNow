@@ -6,9 +6,9 @@ class card_clima extends HTMLElement {
 
         this.shadow = this.attachShadow({mode: 'open'})
 
-        this.clima = 'oi'
-        this.cidade = 'aaa'
-        this.cor = 'black'
+        this.clima = '00°'
+        this.cidade = 'Cidade'
+        this.cor = 'white'
     }
 
     static get observedAttributes() {
