@@ -39,11 +39,13 @@ header nav{
     display: flex;
     gap: 20px;
 }
-.cidades{
+.container{
     display: grid;
     grid-template-columns: repeat(auto-fit , minmax(300px, 1fr));
-    margin: 100px;
+    margin: 50px;
     gap: 100px;
+    min-height: 65vh;
+    max-height: fit-content;
 }
 .cidades__add{
     display: grid;
@@ -77,8 +79,39 @@ footer div{
     font-size: 1.25rem;
     padding: 0px 73px;
 }
-.container-vermelho{
-    background-color: red;
+/* #scrnli_recorder_root{
+    display: none;
+}  */
+.buscar-cidades{
+    color: #fff;
+    justify-content: center;
+    display: flex;
+    align-items: center;
     width: 100%;
-    height: 100%;
+    flex-direction: column;
+    gap: 74px;
+}
+.buscar-cidades div{
+    display: flex;
+    flex-direction: column;
+    gap: 74px;
+}
+.buscar-cidades h3{
+    font-size: 40px;
+    text-align: center;
+}
+.buscar-cidades input{
+    width: 40vw;
+    height: 3.7vh;
+    background-color: var(--details);
+    border-radius: 20px;
+    border: 0px;
+    padding: 10px;
+    color: #fff;
+}
+input:focus{
+    outline: 0px;
+}
+::-webkit-input-placeholder{
+    color: #fff;
 }
