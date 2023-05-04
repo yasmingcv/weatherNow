@@ -1,4 +1,5 @@
 'use strict'
+import { pesquisarCidade } from "./app.js"
 
 const routes = {
     '/cidades' : 'pages/cidades.html',
@@ -15,6 +16,10 @@ const route = async () => {
     const html = await response.text()
 
     document.getElementById('root').innerHTML = html
+
+    if(path == '/cidades'){
+        document.getElementById('input-search').addEventListener('blur', pesquisarCidade)
+    }
 }
 
 window.route = route

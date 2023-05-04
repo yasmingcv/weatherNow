@@ -14,7 +14,6 @@
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/5c84213cbd.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/card.css">
     <script src="./js/card.js"></script>
     <script src="./js/app.js" defer type="module"></script>
     <title>WeatherNow</title>
@@ -33,11 +32,9 @@
         <div class="buscar-cidades">
             <div>
                 <h3>Buscar cidade</h3>
-                <input type="search" placeholder="Digite o nome da cidade">
+                <input type="search" placeholder="Digite o nome da cidade" id="input-search">
             </div>
-            <div id="cidade-encontrada">
-                <card-clima cidade="São Paulo - BR" cor="red" clima="32°"></card-clima>
-            </div>
+            <div id="cidade-encontrada"></div>
         </div>
     </main>
     <footer>
