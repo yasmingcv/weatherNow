@@ -1,5 +1,7 @@
 'use strict'
 
+import { route } from "./router.js"
+
 class card_clima extends HTMLElement {
     constructor() {
         super()
@@ -25,8 +27,10 @@ class card_clima extends HTMLElement {
     }
 
     component(){
-        const card_clima = document.createElement('div')
+        const card_clima = document.createElement('a')
         card_clima.classList.add('card-clima')
+        card_clima.href = '/cidade'
+        card_clima.onclick = route
 
         const clima = document.createElement('h3')
         clima.textContent = this.clima

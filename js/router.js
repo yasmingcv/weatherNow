@@ -1,12 +1,14 @@
 'use strict'
 import { pesquisarCidade } from "./app.js"
+import { carregarCidadesFavoritas } from "./app.js"
 
 const routes = {
     '/cidades' : 'pages/cidades.html',
-    '/favoritos' : 'pages/favoritos.html'
+    '/favoritos' : 'pages/favoritos.html',
+    '/cidade' : 'pages/cidade.html'
 }
 
-const route = async () => {
+export const route = async () => {
     window.event.preventDefault()
     window.history.pushState({}, "", window.event.target.href)
 
@@ -19,6 +21,9 @@ const route = async () => {
 
     if(path == '/cidades'){
         document.getElementById('input-search').addEventListener('blur', pesquisarCidade)
+    } 
+    if(path == '/favoritos'){
+        carregarCidadesFavoritas()
     }
 }
 

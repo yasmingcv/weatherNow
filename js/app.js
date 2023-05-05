@@ -3,7 +3,7 @@
 import './router.js'
 import { getClimaCidade } from './openweather.js'
 
-const jsonTesteCidades = { cidades: ['Madrid', 'São Paulo', 'João Pessoa', 'Ohio', 'Com', 'Doha'] }
+const jsonTesteCidades = { cidades: ['Madrid', 'São Paulo', 'João Pessoa', 'Ohio', 'Com', 'Doha', 'Seabra', 'Palmeiras', 'Itapevi'] }
 
 const criarCardCidade = (cidade, local) => {
     const main = document.getElementById(local)
@@ -20,7 +20,12 @@ const criarCardCidade = (cidade, local) => {
         card.cor = '#FC4309'
     }
 
-    main.replaceChildren(card)
+
+    if(local == 'cidade-encontrada'){
+        main.replaceChildren(card)
+    } else if (local == 'container-favoritos'){
+        main.append(card)
+    }  
 
 }
 
@@ -36,15 +41,13 @@ export const pesquisarCidade = async () => {
 document.getElementById('input-search').addEventListener('blur', pesquisarCidade)
 
 
-export const carregarCidadesFavoritas = () => {
+export const carregarCidadesFavoritas = async () => {
 
-    jsonTesteCidades.cidades.forEach(cidade => {
-        const cidadePesquisada = getClimaCidade(cidade)
+    for (const cidade of jsonTesteCidades.cidades) {
+        const cidadePesquisada = await getClimaCidade(cidade)
 
-        console.log(cidadePesquisada);
 
         criarCardCidade(cidadePesquisada, 'container-favoritos')
-    })
+    }
 }
 
-carregarCidadesFavoritas()
