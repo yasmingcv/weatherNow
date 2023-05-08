@@ -79,9 +79,6 @@ footer div{
     font-size: 1.25rem;
     padding: 0px 73px;
 }
-/* #scrnli_recorder_root{
-    display: none;
-}  */
 .buscar-cidades{
     color: #fff;
     justify-content: center;
@@ -114,4 +111,61 @@ input:focus{
 }
 ::-webkit-input-placeholder{
     color: #fff;
+}
+#info-cidade{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+    color: #fff;
+}
+.principais{
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+#temp-cidade{
+    font-size: 6rem;
+    font-weight: 900;
+}
+#nome-cidade{
+    font-size: 2.4rem;
+    font-weight: 900;
+}
+#desc-cidade{
+    font-size: 2rem;
+    font-weight: 600;
+}
+.detalhes{
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+}
+.detalhes div{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.detalhes div p{
+    font-size: 1.25rem;
+    font-weight: 600
+}
+.detalhes div h3{
+    font-size: 2rem;
+    font-weight: 900;
+}
+#favorito{
+    display: none;
+}
+#add-favorito{
+    width: 24px;
+    height: 24px;
+}
+#add-favorito img{
+    fill: white;
+}
+#desc-cidade, #umidade{
+    color: var(--details);
 }

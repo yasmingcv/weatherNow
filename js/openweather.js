@@ -11,8 +11,10 @@ export const getClimaCidade = async (cidade) => {
         maxima: Math.trunc(data.main.temp_max),
         sencacao_termica: Math.trunc(data.main.feels_like),
         umidade: data.main.humidity,
+        descricao: data.weather[0].description,
         nome: data.name,
-        pais: data.sys.country
+        pais: data.sys.country,
+        favorita: false
     }
 }
 

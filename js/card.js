@@ -29,8 +29,6 @@ class card_clima extends HTMLElement {
     component(){
         const card_clima = document.createElement('a')
         card_clima.classList.add('card-clima')
-        card_clima.href = '/cidade'
-        card_clima.onclick = route
 
         const clima = document.createElement('h3')
         clima.textContent = this.clima
@@ -56,6 +54,7 @@ class card_clima extends HTMLElement {
             flex-direction: column;
             gap: 34px;
             padding: 30px;
+            cursor: pointer;
         }
         .card-clima h3{
             font-size: 4rem;

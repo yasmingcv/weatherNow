@@ -1,11 +1,12 @@
 'use strict'
 import { pesquisarCidade } from "./app.js"
 import { carregarCidadesFavoritas } from "./app.js"
+import { criarTelaCidade } from "./app.js"
 
 const routes = {
     '/cidades' : 'pages/cidades.html',
     '/favoritos' : 'pages/favoritos.html',
-    '/cidade' : '/pages/cidade.html'
+    '/cidade' : 'pages/cidade.html'
 }
 
 export const route = async () => {
@@ -24,6 +25,9 @@ export const route = async () => {
     } 
     if(path == '/favoritos'){
         carregarCidadesFavoritas()
+    }
+    if(path == '/cidade'){
+        criarTelaCidade(localStorage.getItem('cidade'))
     }
 }
 

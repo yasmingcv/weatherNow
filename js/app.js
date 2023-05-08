@@ -3,8 +3,8 @@
 import './router.js'
 import { getClimaCidade } from './openweather.js'
 
-const jsonTesteCidades = { cidades: ['Madrid', 'São Paulo', 'João Pessoa', 'Ohio', 'Com', 'Doha', 'Seabra', 'Palmeiras', 'Itapevi'] }
-
+const jsonTesteCidades = { cidades: ['Jandira', 'Madrid', 'São Paulo', 'João Pessoa', 'Ohio'] }
+ 
 //Cria o card da cidade, passando onde se deve criar (favoritos ou pesquisa)
 const criarCardCidade = (cidade, local) => {
     const main = document.getElementById(local)
@@ -12,43 +12,86 @@ const criarCardCidade = (cidade, local) => {
     const card = document.createElement('card-clima')
     card.cidade = `${cidade.nome} - ${cidade.pais}`
     card.clima = `${cidade.temperatura}º`
-
-    if (cidade.temperatura <= 20) {
-        card.cor = '#91BCB2'
-    } else if (cidade.temperatura > 20 && cidade.temperatura < 30) {
-        card.cor = '#D9C300'
-    } else {
-        card.cor = '#FC4309'
-    }
-
-
+    card.cor = definirCor(cidade.temperatura)
+    card.href = '/cidade'
+    card.onclick = route
+      
     if(local == 'cidade-encontrada'){
         main.replaceChildren(card)
     } else if (local == 'container-favoritos'){
         main.append(card)
-    }  
+    }
+
+    card.addEventListener('click', ()=>{
+        localStorage.setItem('cidade', cidade.nome)
+    })
 
 }
 
+//Tela de pesquisa
 export const pesquisarCidade = async () => {
     const cidade = document.getElementById('input-search').value
     const cidadePesquisada = await getClimaCidade(cidade)
-
-    console.log('teste');
 
     criarCardCidade(cidadePesquisada, 'cidade-encontrada')
 }
 
 document.getElementById('input-search').addEventListener('blur', pesquisarCidade)
 
-
+//Tela cidades favoritas
 export const carregarCidadesFavoritas = async () => {
 
     for (const cidade of jsonTesteCidades.cidades) {
         const cidadePesquisada = await getClimaCidade(cidade)
 
-
         criarCardCidade(cidadePesquisada, 'container-favoritos')
     }
+}
+
+//Tela com detalhes da cidade
+export const criarTelaCidade = async (cidade) => {
+    const cidadePesquisada = await getClimaCidade(cidade)
+
+    const temperatura = document.getElementById('temp-cidade')
+    temperatura.textContent = `${cidadePesquisada.temperatura}º`
+    temperatura.style.color = definirCor(cidadePesquisada.temperatura)
+
+    const nomeCidade = document.getElementById('nome-cidade')
+    nomeCidade.textContent = `${cidadePesquisada.nome} - ${cidadePesquisada.pais}`
+
+    const descCidade = document.getElementById('desc-cidade')
+    descCidade.textContent = cidadePesquisada.descricao.charAt(0).toUpperCase() + cidadePesquisada.descricao.slice(1)
+    
+    
+    const sensacaoTermica = document.getElementById('sensacao-termica')
+    sensacaoTermica.textContent = `${cidadePesquisada.sencacao_termica}º`
+    sensacaoTermica.style.color = definirCor(cidadePesquisada.sencacao_termica)
+
+    const tempMinima = document.getElementById('minima')
+    tempMinima.textContent = `${cidadePesquisada.minima}º`
+    tempMinima.style.color = definirCor(cidadePesquisada.minima)
+
+    const tempMaxima = document.getElementById('maxima')
+    tempMaxima.textContent = `${cidadePesquisada.maxima}º`
+    tempMaxima.style.color = definirCor(cidadePesquisada.maxima)
+
+    const umidade = document.getElementById('umidade')
+    umidade.textContent = `${cidadePesquisada.umidade}%`
+    
+}
+
+//Definir as cores de acordo com a temperatura informada
+const definirCor = (temperatura) => {
+    let cor
+
+    if (temperatura <= 20) {
+        cor = '#91BCB2'
+    } else if (temperatura > 20 && temperatura < 30) {
+        cor = '#D9C300'
+    } else {
+        cor = '#FC4309'
+    }
+
+    return cor
 }
 
