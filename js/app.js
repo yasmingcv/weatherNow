@@ -4,6 +4,8 @@ import './router.js'
 import { getClimaCidade } from './openweather.js'
 
 const jsonTesteCidades = { cidades: ['Jandira', 'Madrid', 'São Paulo', 'João Pessoa', 'Ohio'] }
+localStorage.setItem('array', jsonTesteCidades)
+console.log(localStorage.getItem('array'));
  
 //Cria o card da cidade, passando onde se deve criar (favoritos ou pesquisa)
 const criarCardCidade = (cidade, local) => {
@@ -93,5 +95,24 @@ const definirCor = (temperatura) => {
     }
 
     return cor
+}
+
+export const adicionarAosFavoritos = () => {
+    const adicionar = document.getElementById('add-favorito')
+    const remover = document.getElementById('favorito')
+
+    adicionar.addEventListener('click', () => {
+        adicionar.classList.remove('visible')
+        adicionar.classList.add('invisible')
+        remover.classList.remove('invisible')
+        remover.classList.add('visible')
+    })
+
+    remover.addEventListener('click', () => {
+        adicionar.classList.remove('invisible')
+        adicionar.classList.add('visible')
+        remover.classList.remove('visible')
+        remover.classList.add('invisible')
+    })
 }
 

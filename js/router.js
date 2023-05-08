@@ -2,6 +2,7 @@
 import { pesquisarCidade } from "./app.js"
 import { carregarCidadesFavoritas } from "./app.js"
 import { criarTelaCidade } from "./app.js"
+import { adicionarAosFavoritos } from "./app.js"
 
 const routes = {
     '/cidades' : 'pages/cidades.html',
@@ -28,6 +29,8 @@ export const route = async () => {
     }
     if(path == '/cidade'){
         criarTelaCidade(localStorage.getItem('cidade'))
+        adicionarAosFavoritos()
+        
     }
 }
 

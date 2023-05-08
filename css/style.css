@@ -157,15 +157,20 @@ input:focus{
     font-weight: 900;
 }
 #favorito{
-    display: none;
+    cursor: pointer;
 }
 #add-favorito{
-    width: 24px;
-    height: 24px;
-}
-#add-favorito img{
-    fill: white;
+    cursor: pointer;
+    filter: invert(100%);
 }
 #desc-cidade, #umidade{
     color: var(--details);
+}
+
+.visible{
+    display: block;
+}
+
+.invisible{
+    display: none;
 }
