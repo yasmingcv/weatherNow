@@ -5,7 +5,7 @@ import { carregarCidadesFavoritas } from "./app.js"
 const routes = {
     '/cidades' : 'pages/cidades.html',
     '/favoritos' : 'pages/favoritos.html',
-    '/cidade' : 'pages/cidade.html'
+    '/cidade' : '/pages/cidade.html'
 }
 
 export const route = async () => {

@@ -5,6 +5,7 @@ import { getClimaCidade } from './openweather.js'
 
 const jsonTesteCidades = { cidades: ['Madrid', 'São Paulo', 'João Pessoa', 'Ohio', 'Com', 'Doha', 'Seabra', 'Palmeiras', 'Itapevi'] }
 
+//Cria o card da cidade, passando onde se deve criar (favoritos ou pesquisa)
 const criarCardCidade = (cidade, local) => {
     const main = document.getElementById(local)
 
