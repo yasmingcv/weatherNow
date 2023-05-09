@@ -30,7 +30,6 @@ export const route = async () => {
     if(path == '/cidade'){
         criarTelaCidade(localStorage.getItem('cidade'))
         adicionarAosFavoritos()
-        
     }
 }
 

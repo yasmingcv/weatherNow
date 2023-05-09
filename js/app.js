@@ -3,10 +3,10 @@
 import './router.js'
 import { getClimaCidade } from './openweather.js'
 
-const jsonTesteCidades = { cidades: ['Jandira', 'Madrid', 'São Paulo', 'João Pessoa', 'Ohio'] }
+const jsonTesteCidades = { cidades: ['Itapevi'] }
 localStorage.setItem('array', jsonTesteCidades)
 console.log(localStorage.getItem('array'));
- 
+
 //Cria o card da cidade, passando onde se deve criar (favoritos ou pesquisa)
 const criarCardCidade = (cidade, local) => {
     const main = document.getElementById(local)
@@ -17,14 +17,14 @@ const criarCardCidade = (cidade, local) => {
     card.cor = definirCor(cidade.temperatura)
     card.href = '/cidade'
     card.onclick = route
-      
-    if(local == 'cidade-encontrada'){
+
+    if (local == 'cidade-encontrada') {
         main.replaceChildren(card)
-    } else if (local == 'container-favoritos'){
+    } else if (local == 'container-favoritos') {
         main.append(card)
     }
 
-    card.addEventListener('click', ()=>{
+    card.addEventListener('click', () => {
         localStorage.setItem('cidade', cidade.nome)
     })
 
@@ -63,8 +63,7 @@ export const criarTelaCidade = async (cidade) => {
 
     const descCidade = document.getElementById('desc-cidade')
     descCidade.textContent = cidadePesquisada.descricao.charAt(0).toUpperCase() + cidadePesquisada.descricao.slice(1)
-    
-    
+
     const sensacaoTermica = document.getElementById('sensacao-termica')
     sensacaoTermica.textContent = `${cidadePesquisada.sencacao_termica}º`
     sensacaoTermica.style.color = definirCor(cidadePesquisada.sencacao_termica)
@@ -79,7 +78,7 @@ export const criarTelaCidade = async (cidade) => {
 
     const umidade = document.getElementById('umidade')
     umidade.textContent = `${cidadePesquisada.umidade}%`
-    
+
 }
 
 //Definir as cores de acordo com a temperatura informada
@@ -98,21 +97,36 @@ const definirCor = (temperatura) => {
 }
 
 export const adicionarAosFavoritos = () => {
-    const adicionar = document.getElementById('add-favorito')
-    const remover = document.getElementById('favorito')
+    let adicionar = document.getElementById('add-favorito')
+    let remover = document.getElementById('favorito')
 
-    adicionar.addEventListener('click', () => {
-        adicionar.classList.remove('visible')
-        adicionar.classList.add('invisible')
+    let city = document.getElementById('nome-cidade').textContent
+
+    let cidade = city.slice(0, city.length - 4)
+
+    if (jsonTesteCidades.cidades.includes(cidade)) {
         remover.classList.remove('invisible')
         remover.classList.add('visible')
-    })
 
-    remover.addEventListener('click', () => {
-        adicionar.classList.remove('invisible')
-        adicionar.classList.add('visible')
-        remover.classList.remove('visible')
-        remover.classList.add('invisible')
-    })
+        remover.addEventListener('click', () => {
+            adicionar.classList.remove('invisible')
+            adicionar.classList.add('visible')
+            remover.classList.remove('visible')
+            remover.classList.add('invisible')
+        })
+
+    } else {
+        adicionar.addEventListener('click', () => {
+            adicionar.classList.remove('visible')
+            adicionar.classList.add('invisible')
+            remover.classList.remove('invisible')
+            remover.classList.add('visible')
+
+            console.log(cidade);
+
+            jsonTesteCidades.cidades.push(cidade)
+            console.log(jsonTesteCidades.cidades);
+        })
+    }
 }
 
