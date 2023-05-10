@@ -2,7 +2,7 @@
 import { pesquisarCidade } from "./app.js"
 import { carregarCidadesFavoritas } from "./app.js"
 import { criarTelaCidade } from "./app.js"
-import { adicionarAosFavoritos } from "./app.js"
+import { listenerPesquisaCidade } from "./app.js"
 
 const routes = {
     '/cidades' : 'pages/cidades.html',
@@ -22,7 +22,7 @@ export const route = async () => {
     document.getElementById('root').innerHTML = html
 
     if(path == '/cidades'){
-        document.getElementById('input-search').addEventListener('blur', pesquisarCidade)
+        listenerPesquisaCidade()
     } 
     if(path == '/favoritos'){
         carregarCidadesFavoritas()

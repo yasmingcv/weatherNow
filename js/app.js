@@ -36,7 +36,15 @@ export const pesquisarCidade = async () => {
     criarCardCidade(cidadePesquisada, 'cidade-encontrada')
 }
 
-document.getElementById('input-search').addEventListener('blur', pesquisarCidade)
+export const listenerPesquisaCidade = () => {
+    document.getElementById('input-search').addEventListener('keydown', function (e) {
+        if (e.key == "Enter") {
+            this.blur()
+        }
+    })
+    document.getElementById('input-search').addEventListener('blur', pesquisarCidade)
+}
+
 
 //Tela cidades favoritas
 export const carregarCidadesFavoritas = async () => {
@@ -131,3 +139,5 @@ export const adicionarAosFavoritos = (cidade) => {
         })
     }
 }
+
+listenerPesquisaCidade()
