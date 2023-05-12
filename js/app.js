@@ -85,7 +85,24 @@ export const criarTelaCidade = async (cidade) => {
     const umidade = document.getElementById('umidade')
     umidade.textContent = `${cidadePesquisada.umidade}%`
 
-    adicionarAosFavoritos(cidade)
+    let adicionar = document.getElementById('add-favorito')
+    let remover = document.getElementById('favorito')
+
+    //Se a cidade já foi adicionada as favoritas, deixa o botão de remover cidade das favoritas disponível
+    if (cidadesFavoritas.includes(cidade)) {
+        remover.classList.remove('invisible')
+        remover.classList.add('visible')
+        adicionar.classList.add('invisible')
+    }
+
+    adicionar.addEventListener('click', () => {
+        adicionarAosFavoritos(cidade)
+    })
+
+    remover.addEventListener('click', () => {
+        removerDosFavoritos(cidade)
+    })
+
 
 }
 
@@ -105,39 +122,32 @@ const definirCor = (temperatura) => {
 }
 
 //Adiciona uma cidade aos favoritos
-export const adicionarAosFavoritos = (cidade) => {
+const adicionarAosFavoritos = (cidade) => {
     let adicionar = document.getElementById('add-favorito')
     let remover = document.getElementById('favorito')
 
+    adicionar.classList.remove('visible')
+    adicionar.classList.add('invisible')
+    remover.classList.remove('invisible')
+    remover.classList.add('visible')
+
+    cidadesFavoritas.push(cidade)
+
+}
+
+//Remove uma cidade dos favoritos
+const removerDosFavoritos = (cidade) => {
+    let adicionar = document.getElementById('add-favorito')
+    let remover = document.getElementById('favorito')
     const index = cidadesFavoritas.indexOf(cidade)
 
-    //Se a cidade já foi adicionada as favoritas, deixa o botão de remover cidade das favoritas disponível
-    if (cidadesFavoritas.includes(cidade)) {
-        remover.classList.remove('invisible')
-        remover.classList.add('visible')
-        adicionar.classList.add('invisible')
+    adicionar.classList.remove('invisible')
+    adicionar.classList.add('visible')
+    remover.classList.remove('visible')
+    remover.classList.add('invisible')
 
-        remover.addEventListener('click', () => {
-            adicionar.classList.remove('invisible')
-            adicionar.classList.add('visible')
-            remover.classList.remove('visible')
-            remover.classList.add('invisible')
+    cidadesFavoritas.splice(index, 1)
 
-            cidadesFavoritas.splice(index, 1)
-
-        })
-    //Se não, deixa o botão de adicionar cidade as favoritas disponível
-    } else {
-        adicionar.addEventListener('click', () => {
-            adicionar.classList.remove('visible')
-            adicionar.classList.add('invisible')
-            remover.classList.remove('invisible')
-            remover.classList.add('visible')
-
-            cidadesFavoritas.push(cidade)
-
-        })
-    }
 }
 
 listenerPesquisaCidade()
