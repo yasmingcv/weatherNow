@@ -35,9 +35,13 @@ header{
 .logo{
     font-family: 'Francois One', sans-serif
 }
-header nav{
+.nav{
     display: flex;
     gap: 20px;
+}
+.nav a:hover{
+    color: #CCCCCC;
+    transition: .5s;
 }
 .container{
     display: grid;
@@ -78,6 +82,11 @@ footer div{
     gap: 40px;
     font-size: 1.25rem;
     padding: 0px 73px;
+}
+footer div i:hover{
+    color: #CCCCCC;
+    transition: .5s;
+    cursor: pointer;
 }
 .buscar-cidades{
     color: #fff;
@@ -171,8 +180,13 @@ input:focus{
 .visible{
     display: block;
 }
-
 .invisible{
+    display: none;
+}
+.fa-bars{
+    display: none;
+}
+.nav-bars{
     display: none;
 }
 @media(max-width: 820px){
@@ -186,5 +200,48 @@ input:focus{
     }
     #info-cidade{
         margin: 30px;
+    }
+}
+@media(max-width: 500px){
+    .buscar-cidades div input{
+        width: 300px;
+    }
+    .fa-bars{
+        display: block;
+    }
+    header{
+        padding: 0px 15px;
+    }
+    .nav{
+        display: none;
+    }
+    .nav-bars{
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        left: 70vw;
+        top: 6vh;
+        font-size: 1rem;
+        background-color: dodgerblue;
+        padding: 2px;
+    }
+    .nav-bars a{
+        font-size: 0.9rem;
+    }
+    footer{
+        justify-content: center;
+    }
+    footer div{
+        padding: 20px;
+    }
+    footer div{
+        display: none;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0px;
     }
 }

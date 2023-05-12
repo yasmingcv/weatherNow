@@ -121,6 +121,21 @@ const definirCor = (temperatura) => {
     return cor
 }
 
+//Barra de menu
+const aparecerMenuBars = () => {    
+    const nav_bars = document.getElementById('nav-bars')
+
+    if (nav_bars.style.display == 'flex') {
+        nav_bars.style.display = 'none'
+    } else {
+        nav_bars.style.display = 'flex'
+    }
+}
+
+//Listener para barra de menu
+const bars = document.getElementById('bars')
+bars.addEventListener('click', aparecerMenuBars)
+
 //Adiciona uma cidade aos favoritos
 const adicionarAosFavoritos = (cidade) => {
     let adicionar = document.getElementById('add-favorito')

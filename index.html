@@ -16,17 +16,22 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/card.js" defer type="module"></script>
     <script src="./js/app.js" defer type="module"></script>
+    <link rel="icon" href="./img/sol.png">
     <title>WeatherNow</title>
 </head>
 
 <body>
     <header>
         <p class="logo">WeatherNow</p>
-        <nav>
+        <nav class="nav">
             <a href="/cidades" onclick="route()">Buscar cidade</a>
             <a href="/favoritos" onclick="route()">Favoritos</a>
         </nav>
-
+        <i class="fa-solid fa-bars" id="bars"></i>
+        <nav class="nav-bars" id="nav-bars">
+            <a href="/cidades" onclick="route()">Buscar cidade</a>
+            <a href="/favoritos" onclick="route()">Favoritos</a>
+        </nav>
     </header>
     <main id="root">
         <div class="buscar-cidades">
@@ -39,13 +44,22 @@
     </main>
     <footer>
         <div>
-            <i class="fa-brands fa-github"></i>
-            <i class="fa-brands fa-linkedin"></i>
+            <a href="https://github.com/yasmingcv">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/yasmingcv/">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
         </div>
         <p>Todos os direitos reservados © Yasmin Gonçalves</p>
         <div>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-whatsapp"></i>
+            <a href="https://www.instagram.com/yasmingcv/">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=5511948303519&text=Ol%C3%A1!%20Peguei%20seu%20n%C3%BAmero%20atrav%C3%A9s%20do%20projeto%20%22WeatherNow%22.">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            
         </div>
     </footer>
 </body>

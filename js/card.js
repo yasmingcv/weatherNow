@@ -67,7 +67,11 @@ class card_clima extends HTMLElement {
             font-weight: 400;
             padding:0;
             margin: 0;
-        }   
+        }
+        .card-clima:hover{
+            background-color: #111111;
+            transition: .5s;
+        } 
         `
         return css
     }
